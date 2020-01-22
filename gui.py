@@ -43,7 +43,7 @@ class App(tk.Tk):
 
     def classify_handwriting(self):
         HWND = self.canvas.winfo_id() # get the handle of the canvas
-        rect = win32gui.GetWindowRect(HWND) # get the coordinate of the canvas
+        rect = win64gui.GetWindowRect(HWND) # get the coordinate of the canvas
         im = ImageGrab.grab(rect)
         digit, acc = predict_digit(im)
         self.label.configure(text= str(digit)+', '+ str(int(acc*100))+'%')
